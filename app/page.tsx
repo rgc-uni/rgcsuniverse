@@ -25,7 +25,7 @@ export default function Home() {
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ amount: 0.3 }}
           className="p-8 bg-slate-800 rounded-2xl border border-slate-700"
         >
           <h2 className="text-3xl font-bold mb-4">First Section</h2>
@@ -39,7 +39,7 @@ export default function Home() {
           initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ amount: 0.3 }}
           className="p-8 bg-slate-800 rounded-2xl border border-slate-700"
         >
           <h2 className="text-3xl font-bold mb-4">Second Section</h2>
