@@ -20,7 +20,7 @@ export default function Home() {
 
       {/* Content Sections */}
       <section className="min-h-screen max-w-4xl mx-auto px-6 py-20 space-y-24">
-        {/* First Section - Slides in from the left */}
+        {/* First Section - Slides in from left */}
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -34,7 +34,7 @@ export default function Home() {
           </p>
         </motion.div>
 
-        {/* Second Section - Slides in from the right */}
+        {/* Second Section - Slides in from right */}
         <motion.div
           initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
