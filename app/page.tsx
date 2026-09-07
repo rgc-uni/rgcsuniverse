@@ -8,10 +8,10 @@ export default function Home() {
       {/* Hero Section */}
       <section className="h-screen flex flex-col justify-center items-center text-center p-6">
         <h1 className="text-6xl font-extrabold tracking-tight sm:text-8xl mb-6">
-          My Big Title
+          RGC's Universe
         </h1>
         <p className="text-xl sm:text-2xl text-slate-300 max-w-2xl">
-          This is the text right underneath the title. Scroll down to see the sections slide in!
+          Reliable Roblox middleman at discord.gg/rgcs
         </p>
         <div className="mt-12 animate-bounce text-slate-400">
           ↓ Scroll Down
