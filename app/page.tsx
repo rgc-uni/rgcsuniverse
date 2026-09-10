@@ -37,7 +37,7 @@ export default function Home() {
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-6xl font-extrabold tracking-tight sm:text-8xl mb-6 bg-gradient-to-r from-purple-500 via-purple-300 to-white bg-clip-text text-transparent"
+          className="text-6xl font-extrabold tracking-tight sm:text-8xl mb-6 text-black drop-shadow-[0_0_15px_rgba(168,85,247,0.9)]"
         >
           RGC's Universe
         </motion.h1>
