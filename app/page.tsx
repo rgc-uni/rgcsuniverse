@@ -5,24 +5,24 @@ import { motion } from "framer-motion";
 export default function Home() {
   const boxes = [
     {
-      title: "Box 1",
-      description: "Description for box 1 goes here.",
-      image: "https://via.placeholder.com/400x250",
+      title: "Red Willow Gun",
+      description: "$2.40",
+      image: "https://via.placeholder.com/400x250/3b0764/ffffff?text=Red+Willow+Gun",
     },
     {
-      title: "Box 2",
-      description: "Description for box 2 goes here.",
-      image: "https://via.placeholder.com/400x250",
+      title: "Blue Willow Gun",
+      description: "$1.60",
+      image: "https://via.placeholder.com/400x250/3b0764/ffffff?text=Blue+Willow+Gun",
     },
     {
-      title: "Box 3",
-      description: "Description for box 3 goes here.",
-      image: "https://via.placeholder.com/400x250",
+      title: "Green Willow Gun",
+      description: "$1.20",
+      image: "https://via.placeholder.com/400x250/3b0764/ffffff?text=Green+Willow+Gun",
     },
     {
-      title: "Box 4",
-      description: "Description for box 4 goes here.",
-      image: "https://via.placeholder.com/400x250",
+      title: "Purple Willow Gun",
+      description: "$1.40",
+      image: "https://via.placeholder.com/400x250/3b0764/ffffff?text=Purple+Willow+Gun",
     },
   ];
 
@@ -98,7 +98,7 @@ export default function Home() {
               />
               <div className="p-6">
                 <h3 className="text-2xl font-bold mb-2">{box.title}</h3>
-                <p className="text-purple-200">{box.description}</p>
+                <p className="text-purple-200 text-xl font-semibold">{box.description}</p>
               </div>
             </motion.div>
           ))}
