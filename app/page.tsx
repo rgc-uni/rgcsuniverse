@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Home() {
   const middlemen = [
@@ -28,11 +29,40 @@ export default function Home() {
     },
   ];
 
+  // Mouse position tracking
+  const mouseX = useMotionValue(-500);
+  const mouseY = useMotionValue(-500);
+
+  // Smooth springs for cursor glow animation
+  const springX = useSpring(mouseX, { stiffness: 150, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 150, damping: 20 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseX, mouseY]);
+
   return (
     <div 
-      className="text-white min-h-screen overflow-x-hidden bg-cover bg-center bg-no-repeat bg-fixed bg-slate-900"
+      className="relative text-white min-h-screen overflow-x-hidden bg-cover bg-center bg-no-repeat bg-fixed bg-slate-900 pb-64"
       style={{ backgroundImage: "url('/rgc.webp')" }}
     >
+      {/* Smaller Interactive Purple Glow Tracker */}
+      <motion.div
+        className="pointer-events-none fixed z-10 w-[300px] h-[300px] rounded-full bg-purple-600/20 blur-[90px]"
+        style={{
+          x: springX,
+          y: springY,
+          translateX: "-50%",
+          translateY: "-50%",
+        }}
+      />
+
       {/* Top Navbar Positioned Right */}
       <nav className="fixed top-6 right-6 z-50">
         <div className="flex items-center gap-2 bg-purple-950/80 backdrop-blur-md border border-purple-700/60 p-1.5 rounded-2xl shadow-xl">
@@ -52,7 +82,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="h-screen flex flex-col justify-end items-center text-center p-6 pb-12">
+      <section className="relative z-20 h-screen flex flex-col justify-end items-center text-center p-6 pb-12">
         <motion.h1 
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -99,7 +129,20 @@ export default function Home() {
       </section>
 
       {/* Middleman Section Below Hero */}
-      <section className="max-w-4xl mx-auto px-6 py-20 space-y-8">
+      <section className="relative z-20 max-w-4xl mx-auto px-6 pt-20 space-y-8">
+        {/* Purple Diamond Divider */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ amount: 0.3 }}
+          className="flex items-center justify-center gap-4 mb-10"
+        >
+          <div className="h-[1px] w-28 sm:w-48 bg-gradient-to-r from-transparent via-purple-500 to-purple-400 shadow-[0_0_8px_#a855f7]" />
+          <div className="w-3.5 h-3.5 rotate-45 bg-purple-400 border border-purple-200 shadow-[0_0_12px_#a855f7]" />
+          <div className="h-[1px] w-28 sm:w-48 bg-gradient-to-l from-transparent via-purple-500 to-purple-400 shadow-[0_0_8px_#a855f7]" />
+        </motion.div>
+
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -123,26 +166,22 @@ export default function Home() {
               className="bg-black/90 backdrop-blur-md rounded-xl border border-purple-900/60 p-4 sm:p-5 flex items-center justify-between shadow-[0_0_20px_rgba(40,0,70,0.6)] hover:border-purple-600 transition-all duration-300"
             >
               <div className="flex items-center gap-4 sm:gap-6">
-                {/* Rank Badge */}
                 <div className="border border-purple-800/80 bg-purple-950/30 text-purple-400 font-bold px-3 py-1.5 rounded-lg text-sm sm:text-base">
                   {mm.rank}
                 </div>
 
-                {/* Avatar */}
                 <img 
                   src={mm.avatar} 
                   alt={mm.name} 
                   className="w-12 h-12 rounded-full border border-purple-500/40 bg-black/50 p-1"
                 />
 
-                {/* User Info */}
                 <div>
                   <h3 className="text-lg sm:text-xl font-bold text-white leading-tight">{mm.name}</h3>
                   <p className="text-xs sm:text-sm text-slate-400">{mm.handle}</p>
                 </div>
               </div>
 
-              {/* Vouch Stats */}
               <div className="text-right">
                 <div className="text-lg sm:text-xl font-extrabold text-purple-400 tracking-wide">{mm.vouches}</div>
                 <div className="text-[10px] sm:text-xs tracking-widest text-slate-400 uppercase">VOUCHES</div>

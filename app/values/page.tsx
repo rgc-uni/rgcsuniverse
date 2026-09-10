@@ -28,11 +28,9 @@ export default function ValuesPage() {
     },
   ];
 
-  // Mouse position tracking
   const mouseX = useMotionValue(-500);
   const mouseY = useMotionValue(-500);
 
-  // Smooth springs for cursor glow animation
   const springX = useSpring(mouseX, { stiffness: 150, damping: 20 });
   const springY = useSpring(mouseY, { stiffness: 150, damping: 20 });
 
@@ -47,13 +45,13 @@ export default function ValuesPage() {
   }, [mouseX, mouseY]);
 
   return (
-    <div className="relative text-white min-h-screen overflow-x-hidden bg-black pt-28">
+    <div className="relative text-white min-h-screen overflow-x-hidden bg-black pt-28 pb-48">
       {/* Background Radial Gradient */}
       <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_center,_#000000_30%,_#1e0038_100%)]" />
 
-      {/* Interactive Purple Glow Tracker */}
+      {/* Smaller Interactive Purple Glow Tracker */}
       <motion.div
-        className="pointer-events-none fixed z-10 w-[500px] h-[500px] rounded-full bg-purple-600/25 blur-[120px]"
+        className="pointer-events-none fixed z-10 w-[300px] h-[300px] rounded-full bg-purple-600/20 blur-[90px]"
         style={{
           x: springX,
           y: springY,
