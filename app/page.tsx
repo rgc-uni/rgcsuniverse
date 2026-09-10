@@ -71,9 +71,9 @@ export default function Home() {
           viewport={{ amount: 0.3 }}
           className="text-center"
         >
-          <h2 className="text-4xl font-bold mb-3">Our Features & Services</h2>
+          <h2 className="text-4xl font-bold mb-3">Latest MVSD Value Conversions</h2>
           <p className="text-slate-400 text-lg max-w-xl mx-auto">
-            Check out what we offer down below. Everything is safe, fast, and transparent.
+            Check out the most recent rates of your MVSD items.
           </p>
         </motion.div>
 
