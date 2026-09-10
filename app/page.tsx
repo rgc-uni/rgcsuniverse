@@ -8,24 +8,18 @@ export default function Home() {
   const middlemen = [
     {
       rank: "01",
-      name: "mmh_ethan",
-      handle: "ethan",
-      vouches: "2000+",
-      avatar: "https://api.dicebear.com/7.x/identicon/svg?seed=ethan",
+      name: "Reapuh",
+      handle: "Owner, Most Trusted Middleman",
     },
     {
       rank: "02",
-      name: "Neotage",
-      handle: "NeoFc",
-      vouches: "400+",
-      avatar: "https://api.dicebear.com/7.x/identicon/svg?seed=Neotage",
+      name: "mira",
+      handle: "Middleman",
     },
     {
       rank: "03",
-      name: "egg_dz",
-      handle: '""°o.O Egg_Dz O.o°""',
-      vouches: "300+",
-      avatar: "https://api.dicebear.com/7.x/identicon/svg?seed=egg_dz",
+      name: "97dw",
+      handle: "Middleman",
     },
   ];
 
@@ -163,28 +157,15 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               viewport={{ amount: 0.3 }}
-              className="bg-black/90 backdrop-blur-md rounded-xl border border-purple-900/60 p-4 sm:p-5 flex items-center justify-between shadow-[0_0_20px_rgba(40,0,70,0.6)] hover:border-purple-600 transition-all duration-300"
+              className="bg-black/90 backdrop-blur-md rounded-xl border border-purple-900/60 p-4 sm:p-5 flex items-center gap-4 sm:gap-6 shadow-[0_0_20px_rgba(40,0,70,0.6)] hover:border-purple-600 transition-all duration-300"
             >
-              <div className="flex items-center gap-4 sm:gap-6">
-                <div className="border border-purple-800/80 bg-purple-950/30 text-purple-400 font-bold px-3 py-1.5 rounded-lg text-sm sm:text-base">
-                  {mm.rank}
-                </div>
-
-                <img 
-                  src={mm.avatar} 
-                  alt={mm.name} 
-                  className="w-12 h-12 rounded-full border border-purple-500/40 bg-black/50 p-1"
-                />
-
-                <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-white leading-tight">{mm.name}</h3>
-                  <p className="text-xs sm:text-sm text-slate-400">{mm.handle}</p>
-                </div>
+              <div className="border border-purple-800/80 bg-purple-950/30 text-purple-400 font-bold px-3 py-1.5 rounded-lg text-sm sm:text-base">
+                {mm.rank}
               </div>
 
-              <div className="text-right">
-                <div className="text-lg sm:text-xl font-extrabold text-purple-400 tracking-wide">{mm.vouches}</div>
-                <div className="text-[10px] sm:text-xs tracking-widest text-slate-400 uppercase">VOUCHES</div>
+              <div>
+                <h3 className="text-lg sm:text-xl font-bold text-white leading-tight">{mm.name}</h3>
+                <p className="text-xs sm:text-sm text-purple-300/80">{mm.handle}</p>
               </div>
             </motion.div>
           ))}
