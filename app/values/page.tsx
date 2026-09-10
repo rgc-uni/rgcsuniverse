@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function ValuesPage() {
   const boxes = [
@@ -27,11 +28,40 @@ export default function ValuesPage() {
     },
   ];
 
+  // Mouse position tracking
+  const mouseX = useMotionValue(-500);
+  const mouseY = useMotionValue(-500);
+
+  // Smooth springs for cursor glow animation
+  const springX = useSpring(mouseX, { stiffness: 150, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 150, damping: 20 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseX, mouseY]);
+
   return (
-    <div 
-      className="text-white min-h-screen overflow-x-hidden bg-cover bg-center bg-no-repeat bg-fixed bg-slate-900 pt-28"
-      style={{ backgroundImage: "url('/rgc.webp')" }}
-    >
+    <div className="relative text-white min-h-screen overflow-x-hidden bg-black pt-28">
+      {/* Background Radial Gradient: Black in center, dark purple on edges */}
+      <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_center,_#000000_30%,_#1e0038_100%)]" />
+
+      {/* Interactive Purple Glow Tracker */}
+      <motion.div
+        className="pointer-events-none fixed z-10 w-[500px] h-[500px] rounded-full bg-purple-600/25 blur-[120px]"
+        style={{
+          x: springX,
+          y: springY,
+          translateX: "-50%",
+          translateY: "-50%",
+        }}
+      />
+
       {/* Top Navbar */}
       <nav className="fixed top-6 left-6 z-50">
         <div className="flex items-center gap-2 bg-purple-950/80 backdrop-blur-md border border-purple-700/60 p-1.5 rounded-2xl shadow-xl">
@@ -51,7 +81,7 @@ export default function ValuesPage() {
       </nav>
 
       {/* Main Content Area */}
-      <section className="max-w-6xl mx-auto px-6 py-12 space-y-12">
+      <section className="relative z-20 max-w-6xl mx-auto px-6 py-12 space-y-12">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
