@@ -7,22 +7,22 @@ export default function Home() {
     {
       title: "Red Willow Gun",
       description: "$2.40",
-      image: "https://via.placeholder.com/400x250/3b0764/ffffff?text=Red+Willow+Gun",
+      image: "/red_willow_gun.png",
     },
     {
       title: "Blue Willow Gun",
       description: "$1.60",
-      image: "https://via.placeholder.com/400x250/3b0764/ffffff?text=Blue+Willow+Gun",
+      image: "/blue_willow_gun.png",
     },
     {
       title: "Green Willow Gun",
       description: "$1.20",
-      image: "https://via.placeholder.com/400x250/3b0764/ffffff?text=Green+Willow+Gun",
+      image: "/green_willow_gun.png",
     },
     {
       title: "Purple Willow Gun",
       description: "$1.40",
-      image: "https://via.placeholder.com/400x250/3b0764/ffffff?text=Purple+Willow+Gun",
+      image: "/purple_willow_gun.png",
     },
   ];
 
