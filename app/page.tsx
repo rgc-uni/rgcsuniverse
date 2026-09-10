@@ -4,6 +4,30 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function Home() {
+  const middlemen = [
+    {
+      rank: "01",
+      name: "mmh_ethan",
+      handle: "ethan",
+      vouches: "2000+",
+      avatar: "https://api.dicebear.com/7.x/identicon/svg?seed=ethan",
+    },
+    {
+      rank: "02",
+      name: "Neotage",
+      handle: "NeoFc",
+      vouches: "400+",
+      avatar: "https://api.dicebear.com/7.x/identicon/svg?seed=Neotage",
+    },
+    {
+      rank: "03",
+      name: "egg_dz",
+      handle: '""°o.O Egg_Dz O.o°""',
+      vouches: "300+",
+      avatar: "https://api.dicebear.com/7.x/identicon/svg?seed=egg_dz",
+    },
+  ];
+
   return (
     <div 
       className="text-white min-h-screen overflow-x-hidden bg-cover bg-center bg-no-repeat bg-fixed bg-slate-900"
@@ -71,6 +95,60 @@ export default function Home() {
 
         <div className="animate-bounce text-white font-medium">
           ↓ Scroll Down
+        </div>
+      </section>
+
+      {/* Middleman Section Below Hero */}
+      <section className="max-w-4xl mx-auto px-6 py-20 space-y-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ amount: 0.3 }}
+          className="text-center"
+        >
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-widest text-white uppercase drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]">
+            OUR TOP <span className="text-purple-400">MIDDLEMANS</span>
+          </h2>
+        </motion.div>
+
+        <div className="space-y-4">
+          {middlemen.map((mm, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              viewport={{ amount: 0.3 }}
+              className="bg-black/90 backdrop-blur-md rounded-xl border border-purple-900/60 p-4 sm:p-5 flex items-center justify-between shadow-[0_0_20px_rgba(40,0,70,0.6)] hover:border-purple-600 transition-all duration-300"
+            >
+              <div className="flex items-center gap-4 sm:gap-6">
+                {/* Rank Badge */}
+                <div className="border border-purple-800/80 bg-purple-950/30 text-purple-400 font-bold px-3 py-1.5 rounded-lg text-sm sm:text-base">
+                  {mm.rank}
+                </div>
+
+                {/* Avatar */}
+                <img 
+                  src={mm.avatar} 
+                  alt={mm.name} 
+                  className="w-12 h-12 rounded-full border border-purple-500/40 bg-black/50 p-1"
+                />
+
+                {/* User Info */}
+                <div>
+                  <h3 className="text-lg sm:text-xl font-bold text-white leading-tight">{mm.name}</h3>
+                  <p className="text-xs sm:text-sm text-slate-400">{mm.handle}</p>
+                </div>
+              </div>
+
+              {/* Vouch Stats */}
+              <div className="text-right">
+                <div className="text-lg sm:text-xl font-extrabold text-purple-400 tracking-wide">{mm.vouches}</div>
+                <div className="text-[10px] sm:text-xs tracking-widest text-slate-400 uppercase">VOUCHES</div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
     </div>
