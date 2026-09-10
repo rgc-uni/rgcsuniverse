@@ -23,11 +23,9 @@ export default function Home() {
     },
   ];
 
-  // Mouse position tracking
   const mouseX = useMotionValue(-500);
   const mouseY = useMotionValue(-500);
 
-  // Smooth springs for cursor glow animation
   const springX = useSpring(mouseX, { stiffness: 150, damping: 20 });
   const springY = useSpring(mouseY, { stiffness: 150, damping: 20 });
 
@@ -46,7 +44,6 @@ export default function Home() {
       className="relative text-white min-h-screen overflow-x-hidden bg-cover bg-center bg-no-repeat bg-fixed bg-slate-900 pb-64"
       style={{ backgroundImage: "url('/rgc.webp')" }}
     >
-      {/* Smaller Interactive Purple Glow Tracker */}
       <motion.div
         className="pointer-events-none fixed z-10 w-[300px] h-[300px] rounded-full bg-purple-600/20 blur-[90px]"
         style={{
@@ -57,7 +54,7 @@ export default function Home() {
         }}
       />
 
-      {/* Top Navbar Positioned Right */}
+      {/* Top Navbar with HOME, VALUES, and NEWS */}
       <nav className="fixed top-6 right-6 z-50">
         <div className="flex items-center gap-2 bg-purple-950/80 backdrop-blur-md border border-purple-700/60 p-1.5 rounded-2xl shadow-xl">
           <Link 
@@ -71,6 +68,12 @@ export default function Home() {
             className="px-5 py-2 text-sm font-bold tracking-wider text-purple-300 hover:text-white transition-all rounded-xl"
           >
             VALUES
+          </Link>
+          <Link 
+            href="/news" 
+            className="px-5 py-2 text-sm font-bold tracking-wider text-purple-300 hover:text-white transition-all rounded-xl"
+          >
+            NEWS
           </Link>
         </div>
       </nav>
@@ -86,7 +89,6 @@ export default function Home() {
           RGC's Universe
         </motion.h1>
 
-        {/* Animated Status Indicator */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -124,7 +126,6 @@ export default function Home() {
 
       {/* Middleman Section Below Hero */}
       <section className="relative z-20 max-w-4xl mx-auto px-6 pt-20 space-y-8">
-        {/* Purple Diamond Divider */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
