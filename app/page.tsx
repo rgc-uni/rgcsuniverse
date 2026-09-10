@@ -27,7 +27,10 @@ export default function Home() {
   ];
 
   return (
-    <div className="bg-slate-900 text-white min-h-screen overflow-x-hidden">
+    <div 
+      className="text-white min-h-screen overflow-x-hidden bg-cover bg-center bg-no-repeat bg-fixed bg-slate-900"
+      style={{ backgroundImage: "url('/bg.png')" }}
+    >
       {/* Hero Section */}
       <section className="h-screen flex flex-col justify-center items-center text-center p-6">
         <motion.h1 
@@ -86,7 +89,7 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ amount: 0.3 }}
-              className="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-xl flex flex-col"
+              className="bg-slate-800/80 backdrop-blur-md rounded-2xl border border-slate-700 overflow-hidden shadow-xl flex flex-col"
             >
               <img 
                 src={box.image} 
