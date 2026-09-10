@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function ValuesPage() {
-  const [sortOrder, setSortOrder] = useState<"low-to-high" | "high-to-low">("low-to-high");
+  const [sortOrder, setSortOrder] = useState<"featured" | "low-to-high" | "high-to-low">("featured");
 
   const boxes = [
     {
@@ -34,9 +34,11 @@ export default function ValuesPage() {
     },
   ];
 
-  // Sorting logic based on selected dropdown value
+  // Dynamic sorting based on dropdown selection
   const sortedBoxes = [...boxes].sort((a, b) => {
-    return sortOrder === "low-to-high" ? a.price - b.price : b.price - a.price;
+    if (sortOrder === "low-to-high") return a.price - b.price;
+    if (sortOrder === "high-to-low") return b.price - a.price;
+    return 0; // Default Featured order
   });
 
   const mouseX = useMotionValue(-500);
@@ -105,7 +107,7 @@ export default function ValuesPage() {
             Check out the most recent rates of your MVSD items.
           </p>
 
-          {/* Sort Dropdown Selector matching the image design */}
+          {/* Sort Dropdown Menu */}
           <div className="flex items-center justify-center gap-3 mt-4">
             <span className="text-sm font-extrabold tracking-widest text-slate-300 uppercase">
               SORT:
@@ -113,9 +115,12 @@ export default function ValuesPage() {
             <div className="relative inline-block">
               <select
                 value={sortOrder}
-                onChange={(e) => setSortOrder(e.target.value as "low-to-high" | "high-to-low")}
+                onChange={(e) => setSortOrder(e.target.value as "featured" | "low-to-high" | "high-to-low")}
                 className="appearance-none bg-purple-950/60 text-white font-bold text-sm px-5 py-2.5 pr-10 rounded-xl border border-purple-500/60 focus:outline-none focus:border-purple-400 cursor-pointer shadow-md transition-all"
               >
+                <option value="featured" className="bg-slate-900 text-white">
+                  Featured
+                </option>
                 <option value="low-to-high" className="bg-slate-900 text-white">
                   Lowest to Highest Value
                 </option>
