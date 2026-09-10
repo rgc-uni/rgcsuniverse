@@ -6,22 +6,22 @@ export default function Home() {
   const boxes = [
     {
       title: "Red Willow Gun",
-      description: "$2.40",
+      description: "Value: $2.40",
       image: "/red_willow_gun.png",
     },
     {
       title: "Blue Willow Gun",
-      description: "$1.60",
+      description: "Value: $1.60",
       image: "/blue_willow_gun.png",
     },
     {
       title: "Green Willow Gun",
-      description: "$1.20",
+      description: "Value: $1.20",
       image: "/green_willow_gun.png",
     },
     {
       title: "Purple Willow Gun",
-      description: "$1.40",
+      description: "Value: $1.40",
       image: "/purple_willow_gun.png",
     },
   ];
