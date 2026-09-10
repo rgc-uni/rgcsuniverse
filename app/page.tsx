@@ -32,12 +32,12 @@ export default function Home() {
       style={{ backgroundImage: "url('/rgc.webp')" }}
     >
       {/* Hero Section */}
-      <section className="h-screen flex flex-col justify-center items-center text-center p-6">
+      <section className="h-screen flex flex-col justify-center items-center text-center p-6 pt-28">
         <motion.h1 
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-6xl font-extrabold tracking-tight sm:text-8xl mb-6 text-black drop-shadow-[0_0_15px_rgba(168,85,247,0.9)]"
+          className="text-6xl font-extrabold tracking-tight sm:text-8xl mb-6 mt-16 text-white drop-shadow-[0_0_20px_rgba(168,85,247,0.95)]"
         >
           RGC's Universe
         </motion.h1>
@@ -46,7 +46,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl sm:text-2xl text-slate-300 max-w-2xl font-medium"
+          className="text-xl sm:text-2xl text-slate-200 max-w-2xl font-medium mt-4"
         >
           Reliable Roblox middleman at{" "}
           <a 
@@ -59,7 +59,7 @@ export default function Home() {
           </a>
         </motion.p>
 
-        <div className="mt-12 animate-bounce text-slate-400">
+        <div className="mt-16 animate-bounce text-white font-medium">
           ↓ Scroll Down
         </div>
       </section>
