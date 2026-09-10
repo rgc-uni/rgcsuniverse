@@ -89,15 +89,17 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ amount: 0.3 }}
-              className="bg-purple-950/70 backdrop-blur-md rounded-2xl border border-purple-800/60 overflow-hidden shadow-2xl flex flex-col"
+              className="bg-purple-950/70 backdrop-blur-md rounded-2xl border border-purple-800/60 overflow-hidden shadow-2xl flex flex-col p-4"
             >
-              <img 
-                src={box.image} 
-                alt={box.title} 
-                className="w-full h-48 object-cover border-b border-purple-800/60"
-              />
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-2">{box.title}</h3>
+              <div className="w-full h-32 flex items-center justify-center p-2">
+                <img 
+                  src={box.image} 
+                  alt={box.title} 
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+              <div className="p-4 pt-2">
+                <h3 className="text-2xl font-bold mb-1">{box.title}</h3>
                 <p className="text-purple-200 text-xl font-semibold">{box.description}</p>
               </div>
             </motion.div>
