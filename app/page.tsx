@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <div 
       className="text-white min-h-screen overflow-x-hidden bg-cover bg-center bg-no-repeat bg-fixed bg-slate-900"
-      style={{ backgroundImage: "url('/bg.png')" }}
+      style={{ backgroundImage: "url('/icon.png')" }}
     >
       {/* Hero Section */}
       <section className="h-screen flex flex-col justify-center items-center text-center p-6">
