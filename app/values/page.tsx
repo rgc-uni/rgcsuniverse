@@ -2,31 +2,42 @@
 
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function ValuesPage() {
+  const [sortOrder, setSortOrder] = useState<"low-to-high" | "high-to-low">("low-to-high");
+
   const boxes = [
     {
       title: "Red Willow Gun",
+      price: 2.40,
       description: "Value: $2.40",
       image: "/red_willow_gun.png",
     },
     {
       title: "Blue Willow Gun",
+      price: 1.60,
       description: "Value: $1.60",
       image: "/blue_willow_gun.png",
     },
     {
       title: "Green Willow Gun",
+      price: 1.20,
       description: "Value: $1.20",
       image: "/green_willow_gun.png",
     },
     {
       title: "Purple Willow Gun",
+      price: 1.40,
       description: "Value: $1.40",
       image: "/purple_willow_gun.png",
     },
   ];
+
+  // Sorting logic based on selected dropdown value
+  const sortedBoxes = [...boxes].sort((a, b) => {
+    return sortOrder === "low-to-high" ? a.price - b.price : b.price - a.price;
+  });
 
   const mouseX = useMotionValue(-500);
   const mouseY = useMotionValue(-500);
@@ -58,7 +69,7 @@ export default function ValuesPage() {
         }}
       />
 
-      {/* Top Navbar with NEWS tab */}
+      {/* Top Navbar */}
       <nav className="fixed top-6 right-6 z-50">
         <div className="flex items-center gap-2 bg-purple-950/80 backdrop-blur-md border border-purple-700/60 p-1.5 rounded-2xl shadow-xl">
           <Link 
@@ -90,19 +101,43 @@ export default function ValuesPage() {
           className="text-center"
         >
           <h2 className="text-4xl font-bold mb-3">Latest MVSD Value Conversions</h2>
-          <p className="text-slate-300 text-lg max-w-xl mx-auto">
+          <p className="text-slate-300 text-lg max-w-xl mx-auto mb-6">
             Check out the most recent rates of your MVSD items.
           </p>
+
+          {/* Sort Dropdown Selector matching the image design */}
+          <div className="flex items-center justify-center gap-3 mt-4">
+            <span className="text-sm font-extrabold tracking-widest text-slate-300 uppercase">
+              SORT:
+            </span>
+            <div className="relative inline-block">
+              <select
+                value={sortOrder}
+                onChange={(e) => setSortOrder(e.target.value as "low-to-high" | "high-to-low")}
+                className="appearance-none bg-purple-950/60 text-white font-bold text-sm px-5 py-2.5 pr-10 rounded-xl border border-purple-500/60 focus:outline-none focus:border-purple-400 cursor-pointer shadow-md transition-all"
+              >
+                <option value="low-to-high" className="bg-slate-900 text-white">
+                  Lowest to Highest Value
+                </option>
+                <option value="high-to-low" className="bg-slate-900 text-white">
+                  Highest to Lowest Value
+                </option>
+              </select>
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-purple-400">
+                ▼
+              </div>
+            </div>
+          </div>
         </motion.div>
 
+        {/* Display Items Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {boxes.map((box, idx) => (
+          {sortedBoxes.map((box, idx) => (
             <motion.div
-              key={idx}
-              initial={{ opacity: 0, x: idx % 2 === 0 ? -80 : 80 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ amount: 0.3 }}
+              key={box.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: idx * 0.05 }}
               className="bg-purple-950/40 backdrop-blur-md rounded-2xl border-2 border-purple-900/90 overflow-hidden shadow-[0_0_25px_rgba(40,0,70,0.8)] flex flex-col p-4"
             >
               <div className="w-full h-52 flex items-center justify-center p-4 bg-purple-950/60 rounded-xl mb-2 border border-purple-900/40">
