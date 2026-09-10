@@ -8,13 +8,13 @@ export default function NewsPage() {
   const newsItems = [
     {
       date: "FEB 20, 2026",
-      title: "New Middleman Joining the Team",
-      description: "We are expanding our team to ensure even faster middleman response times 24/7.",
+      title: "New Season 1 Economy Prizes!",
+      description: "We now have even MORE prizes to claim with coins, go check it out in the sub-announcements channel!",
     },
     {
       date: "FEB 15, 2026",
-      title: "Discord Server Update",
-      description: "Our ticket system has been updated. Make sure to open tickets through the official server.",
+      title: "Season 1 Economy Has Begun!",
+      description: "Earn Coins in the rgc-economy tab and save up to earn Roblox Prizes!",
     },
   ];
 
