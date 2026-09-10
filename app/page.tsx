@@ -9,8 +9,8 @@ export default function Home() {
       className="text-white min-h-screen overflow-x-hidden bg-cover bg-center bg-no-repeat bg-fixed bg-slate-900"
       style={{ backgroundImage: "url('/rgc.webp')" }}
     >
-      {/* Top Navbar */}
-      <nav className="fixed top-6 left-6 z-50">
+      {/* Top Navbar Positioned Right */}
+      <nav className="fixed top-6 right-6 z-50">
         <div className="flex items-center gap-2 bg-purple-950/80 backdrop-blur-md border border-purple-700/60 p-1.5 rounded-2xl shadow-xl">
           <Link 
             href="/" 

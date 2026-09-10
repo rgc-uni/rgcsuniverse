@@ -48,7 +48,7 @@ export default function ValuesPage() {
 
   return (
     <div className="relative text-white min-h-screen overflow-x-hidden bg-black pt-28">
-      {/* Background Radial Gradient: Black in center, dark purple on edges */}
+      {/* Background Radial Gradient */}
       <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_center,_#000000_30%,_#1e0038_100%)]" />
 
       {/* Interactive Purple Glow Tracker */}
@@ -62,8 +62,8 @@ export default function ValuesPage() {
         }}
       />
 
-      {/* Top Navbar */}
-      <nav className="fixed top-6 left-6 z-50">
+      {/* Top Navbar Positioned Right */}
+      <nav className="fixed top-6 right-6 z-50">
         <div className="flex items-center gap-2 bg-purple-950/80 backdrop-blur-md border border-purple-700/60 p-1.5 rounded-2xl shadow-xl">
           <Link 
             href="/" 
@@ -103,9 +103,9 @@ export default function ValuesPage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ amount: 0.3 }}
-              className="bg-purple-950/70 backdrop-blur-md rounded-2xl border border-purple-800/60 overflow-hidden shadow-2xl flex flex-col p-4"
+              className="bg-purple-950/40 backdrop-blur-md rounded-2xl border-2 border-purple-900/90 overflow-hidden shadow-[0_0_25px_rgba(40,0,70,0.8)] flex flex-col p-4"
             >
-              <div className="w-full h-52 flex items-center justify-center p-4 bg-purple-900/20 rounded-xl mb-2">
+              <div className="w-full h-52 flex items-center justify-center p-4 bg-purple-950/60 rounded-xl mb-2 border border-purple-900/40">
                 <img 
                   src={box.image} 
                   alt={box.title} 
@@ -113,8 +113,8 @@ export default function ValuesPage() {
                 />
               </div>
               <div className="p-2">
-                <h3 className="text-2xl font-bold mb-1">{box.title}</h3>
-                <p className="text-purple-200 text-xl font-semibold">{box.description}</p>
+                <h3 className="text-2xl font-bold mb-1 text-white">{box.title}</h3>
+                <p className="text-purple-300 text-xl font-semibold">{box.description}</p>
               </div>
             </motion.div>
           ))}
